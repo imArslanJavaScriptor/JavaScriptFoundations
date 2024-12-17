@@ -3,6 +3,12 @@ const username = {
   isLoggedin: true,
 };
 
+console.log(username["first name"])
+
+username["first name"] = "MCB"
+
+console.log(username["first name"])
+
 // username.firstname = "Mr. H";
 username.lastname = "choudhary";
 
@@ -21,5 +27,5 @@ let anotherUser = ["hitesh", true];
 // console.log(anotherUser[0]);
 
 let isValue = "2abc";
-console.log(typeof Number(isValue));
-console.log(Number(null));
+// console.log(typeof Number(isValue));
+// console.log(Number(null));
