@@ -76,9 +76,9 @@
 6. Write a `for` loop that lists all the cities in the array `["Paris", "New York", "Tokyo", "London"]` and stores each city in a new array named `cityList`.
 */
 
-// let citiesArray = ["Paris", "New York", "Tokyo", "London"]
-// let cityList = []
-// for(let i = 0; i < citiesArray.length; i++) {
-//   cityList.push(citiesArray[i])
-// }
-// console.log(cityList)
+let citiesArray = ["Paris", "New York", "Tokyo", "London"]
+let cityList = []
+for(let i = 0; i < citiesArray.length; i++) {
+  cityList.push(citiesArray[i])
+}
+console.log(cityList)
