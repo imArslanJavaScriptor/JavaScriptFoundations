@@ -136,6 +136,8 @@ let allTeas = ["earl grey", "green tea", "chai", "oolong tea"]
 let availableTeas = []
 let stopProcess = false
 allTeas.forEach(tea => {
+  // Because we cannot break and stop the iteration in forEach
+  // so that's why we use this flag to achive our fuinctionalty
   if(stopProcess) return
   if(tea === "chai"){
     stopProcess = true
