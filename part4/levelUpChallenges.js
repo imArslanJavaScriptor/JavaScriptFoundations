@@ -91,7 +91,7 @@ for (const key in citiesPopulation) {
   } 
   cityPopulations[key] = citiesPopulation[key]
 }
-console.log(cityPopulations)
+// console.log(cityPopulations)
 
 
 
@@ -108,18 +108,55 @@ let worldCities = {
 
    */
 
+let worldCities = {
+  "Sydney": 5000000,
+  "Tokyo": 9000000,
+  "Berlin": 3500000,
+  "Paris": 2200000
+};
+
+let largeCities = {}
+
+for (const key in worldCities) {
+  if(worldCities[key] < 3000000) {
+    continue
+  }
+  largeCities[key] = worldCities[key]
+}
+
+console.log(largeCities)
+
 
 /* 
 7. Write a `forEach` loop that iterates through the array `["earl grey", "green tea", "chai", "oolong tea"]`. 
    Stop the loop when `"chai"` is found, and store all previous tea types in an array named `availableTeas`.
 */
 
-
+let allTeas = ["earl grey", "green tea", "chai", "oolong tea"]
+let availableTeas = []
+let stopProcess = false
+allTeas.forEach(tea => {
+  if(stopProcess) return
+  if(tea === "chai"){
+    stopProcess = true
+  } else {
+    availableTeas.push(tea)
+  }
+})
+console.log(availableTeas)
 
 /* 
 8. Write a `forEach` loop that iterates through the array `["Berlin", "Tokyo", "Sydney", "Paris"]`. 
    Skip `"Sydney"` and store the other cities in a new array named `traveledCities`.
 */
+
+let allCities = ["Berlin", "Tokyo", "Sydney", "Paris"]
+let traveledCities = []
+allCities.forEach(city => {
+  if(city !== "Sydney") traveledCities.push(city)
+})
+console.log(traveledCities)
+
 
 
 /* 
@@ -127,11 +164,25 @@ let worldCities = {
    Skip the value `7` and multiply the rest by 2. Store the results in a new array named `doubledNumbers`.
 */
 
-
+let allNumbers = [2, 5, 7, 9]
+let doubledNumbers = []
+for (let i = 0; i < allNumbers.length; i++) {
+  if(allNumbers[i] !== 7) doubledNumbers.push(allNumbers[i] * 2)
+}
+console.log(doubledNumbers)
 
 /* 
 10. Use a `for-of` loop to iterate through the array `["chai", "green tea", "black tea", "jasmine tea", "herbal tea"]` 
-    and stop when the length of the current tea name is greater than 10. 
-    Store the teas iterated over in an array named `shortTeas`.
+and stop when the length of the current tea name is greater than 10. 
+Store the teas iterated over in an array named `shortTeas`.
 */
 
+let teas = ["chai", "green tea", "black tea", "jasmine tea", "herbal tea"]
+let shortTeas = []
+for (const elem of teas) {
+  if(elem.length > 10) {
+    break
+  } shortTeas.push(elem)
+}
+
+console.log(shortTeas)
