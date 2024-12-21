@@ -15,14 +15,19 @@ Call `confirmOrder` from within `orderTea` and return the result.
 */
 
 function orderTea(teaType) {
+  // Inside the orderTea function, define the confirmOrder function
   function confirmOrder() {
-    return "Order Confirmed for chai"
+      return `Order confirmed for ${teaType}`;
   }
 
-  return confirmOrder()
+  // Call confirmOrder from within orderTea and return the result
+  return confirmOrder();
 }
-let result = orderTea("Black Tee")
-console.log(result)
+
+// Calling the function with 'chai' and printing the result
+let orderMessage = orderTea("chai");
+console.log(orderMessage);
+
 
 
 /* 
