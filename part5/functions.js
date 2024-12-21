@@ -4,37 +4,24 @@ Store the result in a variable named `teaOrder`.
 */
 
 function makeTea(typeOfTea) {
-  return `Making ${typeOfTea}`;
+  if(typeOfTea === "green tea") return "Making green tea"
 }
-let teaOrder = makeTea("green tea");
-console.log(teaOrder);
+
+let teaOrder = makeTea("green tea")
+console.log(teaOrder)
+
+
 
 /* 
 2. Create a function named `orderTea` that takes one parameter, `teaType`. Inside this function, create another function named `confirmOrder` that returns a message like `"Order confirmed for chai"`. 
 Call `confirmOrder` from within `orderTea` and return the result.
 */
 
-function orderTea(teaType) {
-  // Inside the orderTea function, define the confirmOrder function
-  function confirmOrder() {
-      return `Order confirmed for ${teaType}`;
-  }
-
-  // Call confirmOrder from within orderTea and return the result
-  return confirmOrder();
-}
-
-// Calling the function with 'chai' and printing the result
-let orderMessage = orderTea("chai");
-console.log(orderMessage);
-
-
 
 /* 
 3. Write an arrow function named `calculateTotal` that takes two parameters: `price` and `quantity`. The function should return the total cost by multiplying the `price` and `quantity`. 
 Store the result in a variable named `totalCost`.
 */
-
 
 
 /* 
