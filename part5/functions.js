@@ -83,7 +83,7 @@ function createLogoMaker(LogoName) {
 
 let LogoOwner = createLogoMaker("Sir Arslan")
 let logoCost = LogoOwner("$10K")
-console.log(logoCost("Premium Logo"))
+// console.log(logoCost("Premium Logo"))
 
 // What We Call These Concepts
 // Closures:
@@ -101,3 +101,33 @@ console.log(logoCost("Premium Logo"))
 
 // Your function is an example of currying, a technique where a function doesn't take all its arguments upfront. Instead, it takes them one at a time through multiple calls.
 // createLogoMaker takes LogoName, the first inner function takes logoCost, and the second inner function takes logoType.
+
+function filterNumbers(arr) {
+  return arr.filter(item => typeof item === "number");
+}
+let resArr = [1,2,3,4, "Arslan", "King", 6,7,8,9,10]
+let res = filterNumbers(resArr)
+// console.log(res)
+
+function reverseArray(arr) {
+  return arr.slice().reverse();
+}
+console.log(reverseArray(resArr))
+
+function findMax(arr) {
+  return Math.max(...arr);
+}
+
+function removeDuplicates(arr) {
+  return [...new Set(arr)];
+}
+let arr = [1,2,3,4,5,5,5,5,5,6,6,66,6,7,7,7,7]
+console.log(removeDuplicates(arr))
+
+function flattenArray(arr) {
+  return arr.flat(Infinity);
+}
+
+let SmapleArr = [1,2,3,4, [1,2,3,4, [1,2,3,4, [1,2,3,4]]]]
+console.log(flattenArray(SmapleArr))
+
