@@ -1,16 +1,16 @@
+//Imporent info! we cannot use break and continue inside the functions these keywords are specially designed for loops
+
 /* 
 1. Write a function named `makeTea` that takes one parameter, `typeOfTea`, and returns a string like `"Making green tea"` when called with `"green tea"`. 
 Store the result in a variable named `teaOrder`.
 */
 
 function makeTea(typeOfTea) {
-  if(typeOfTea === "green tea") return "Making green tea"
+  return `Making ${typeOfTea}`
 }
 
-let teaOrder = makeTea("green tea")
-console.log(teaOrder)
-
-
+let teaOrder = makeTea("Yellow tea")
+// console.log(teaOrder)
 
 /* 
 2. Create a function named `orderTea` that takes one parameter, `teaType`. Inside this function, create another function named `confirmOrder` that returns a message like `"Order confirmed for chai"`. 
@@ -18,24 +18,25 @@ Call `confirmOrder` from within `orderTea` and return the result.
 */
 function orderTea(teaType) {
   function confirmOrder() {
-    return "Order confirmed for chai"
+    return `Order confirmed for ${teaType}`
   }
   return confirmOrder()
-
 }
-console.log("Black Cofie")
+
+let orderConfirmed = orderTea("Doodh Patti")
+// console.log(orderConfirmed)
+
 
 /* 
 3. Write an arrow function named `calculateTotal` that takes two parameters: `price` and `quantity`. The function should return the total cost by multiplying the `price` and `quantity`. 
 Store the result in a variable named `totalCost`.
 */
 
-const calculateTotal = (price, quantity) => {
-  let cost = price * quantity
-  return cost
-}
-let totalCost = calculateTotal(20, 5)
-console.log(totalCost)
+const calculateTotal = (price, quantity) =>  price * quantity
+
+let totalCost = calculateTotal(2700, 5000)
+
+// console.log(totalCost)
 
 
 /* 
@@ -43,25 +44,39 @@ console.log(totalCost)
 Return the result of calling `makeTea`.
 */
 
-function processTeaOrder(makeTea) {
-  makeTea = (argument) => {
-    return argument
-  }
-  return makeTea("earl grey")
+function makeTea(tea){
+  return `makeTea: ${tea}`
 }
-
-console.log(processTeaOrder())
-
+function processTeaOrder(teaFunction) {
+  return teaFunction("earl grey")
+}
+let order = processTeaOrder(makeTea)
+console.log(order)
 
 /* 
 5. Write a function named `createTeaMaker` that returns another function. The returned function should take one parameter, `teaType`, and return a message like `"Making green tea"`. 
 Store the returned function in a variable named `teaMaker` and call it with `"green tea"`.
 */
-let createTeaMaker = () => {
-  return anotherFunc =  function(teaType) {
-    return "Making green tea"
+
+function createTeaMaker() {
+  return function(teaType) {
+    return `Making ${teaType}`
   }
 }
 
-let teaType = createTeaMaker()
-console.log(teaType("green tea"))
+let Order = createTeaMaker()
+console.log(Order("Green Tea"))
+
+
+// Extra Info
+// function createTeaMaker() {
+//   return function() {
+//     return function(teaType) {
+//       return `Making ${teaType}`
+//     }
+//   }
+// }
+
+// let Order = createTeaMaker()
+// let confirmedOrder = Order()
+// console.log(confirmedOrder("Green Tea"))
