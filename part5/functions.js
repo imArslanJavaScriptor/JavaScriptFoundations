@@ -51,7 +51,7 @@ function processTeaOrder(teaFunction) {
   return teaFunction("earl grey")
 }
 let order = processTeaOrder(makeTea)
-console.log(order)
+// console.log(order)
 
 /* 
 5. Write a function named `createTeaMaker` that returns another function. The returned function should take one parameter, `teaType`, and return a message like `"Making green tea"`. 
@@ -65,18 +65,39 @@ function createTeaMaker() {
 }
 
 let Order = createTeaMaker()
-console.log(Order("Green Tea"))
+// console.log(Order("Green Tea"))
 
 
 // Extra Info
-// function createTeaMaker() {
-//   return function() {
-//     return function(teaType) {
-//       return `Making ${teaType}`
-//     }
-//   }
-// }
+// We have the Access the vairables that we defined inside the function in the
+// entire Functions Scope
+function createLogoMaker(LogoName) {
+  let logoOwner = LogoName
+  logoOwner.toUpperCase()
+  return function(logoCost) {
+    return function(logoType) {
+      return `Making ${logoType} for ${logoOwner}. in Just ${logoCost} `
+    }
+  }
+}
 
-// let Order = createTeaMaker()
-// let confirmedOrder = Order()
-// console.log(confirmedOrder("Green Tea"))
+let LogoOwner = createLogoMaker("Sir Arslan")
+let logoCost = LogoOwner("$10K")
+console.log(logoCost("Premium Logo"))
+
+// What We Call These Concepts
+// Closures:
+
+// Your code demonstrates closures, a feature in JavaScript where a function "remembers" variables from its parent scope even after the parent function has finished executing.
+// In this case, the second inner function uses logoOwner from the createLogoMaker function and logoCost from the first inner function.
+// Example:
+
+// return `Making ${logoType} for ${logoOwner}. in Just ${logoCost} `;
+// Higher-Order Functions:
+
+// A higher-order function is a function that either takes another function as an argument or returns a function.
+// createLogoMaker is a higher-order function because it returns a function.
+// Function Currying:
+
+// Your function is an example of currying, a technique where a function doesn't take all its arguments upfront. Instead, it takes them one at a time through multiple calls.
+// createLogoMaker takes LogoName, the first inner function takes logoCost, and the second inner function takes logoType.
