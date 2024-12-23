@@ -1,3 +1,4 @@
+// Our Simple Object
 let car = {
   make: "Honda",
   model: "Civic X",
@@ -8,23 +9,28 @@ let car = {
 }
 console.log(car.Starts())
 
-// let car = {
-//   make: "Toyota",
-//   model: "Camry",
-//   year: 2020,
-//   start: function () {
-//     return `${this.make} car got started in ${this.year}`;
-//   },
-// };
-// // console.log(car.start());
+// Constructor Function
+function Person(name, age) {
+  this.name = name
+  this.age = age
+}
 
-// function Person(name, age) {
-//   this.name = name;
-//   this.age = age;
-// }
+let newPerson = new Person("Arslan", 20)
+let user1 = new Person("Endrew", 30)
+console.log(newPerson)
+console.log(user1)
 
-// let john = new Person("John Doe", 20);
-// // console.log(john.name);
+// Prototype & Prototypal Chain
+// The whole idea about the prototype is that I can access properties and methods 
+// inherited from the prototype of an object. 
+
+// The whole idea about the prototypal chain is that I can inject my own methods 
+// or properties into this chain, allowing objects to inherit from one another. 
+// This is called the prototypal chain.
+
+function Animal(species) {
+  this.species = species
+}
 
 // function Animal(type) {
 //   this.type = type;
