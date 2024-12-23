@@ -1,12 +1,13 @@
 let car = {
-  make: "Toyota",
-  model: "Camry",
-  year: 2020,
-  start: function () {
-    return `${this.make} car got started in ${this.year}`;
-  },
-};
-// console.log(car.start());
+  make: "Honda",
+  model: "Civic X",
+  year: "2017",
+  Starts: function () {
+    return `${this.make} ${this.model} Car got started in ${this.year}`
+  }
+}
+console.log(car.Starts())
+
 
 function Person(name, age) {
   this.name = name;
@@ -157,5 +158,5 @@ class Employee {
   }
 }
 let emp = new Employee("Alice", -50000);
-console.log(emp._salary);
-emp.salary = 60000;
+// console.log(emp._salary);
+// emp.salary = 60000;
