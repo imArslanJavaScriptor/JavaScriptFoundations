@@ -7,7 +7,7 @@ let car = {
     return `${this.make} ${this.model} Car got started in ${this.year}`
   }
 }
-console.log(car.Starts())
+// console.log(car.Starts())
 
 // Constructor Function
 function Person(name, age) {
@@ -17,8 +17,8 @@ function Person(name, age) {
 
 let newPerson = new Person("Arslan", 20)
 let user1 = new Person("Endrew", 30)
-console.log(newPerson)
-console.log(user1)
+// console.log(newPerson)
+// console.log(user1)
 
 // Prototype & Prototypal Chain
 // The whole idea about the prototype is that I can access properties and methods 
@@ -30,7 +30,34 @@ console.log(user1)
 
 function Animal(species) {
   this.species = species
+} 
+
+Animal.prototype.speak = function() {
+  return `${this.species} Can Speak`
 }
+
+Animal.prototype.run = function(speed) {
+  return `${this.species} can Run with the speed of ${speed}km/h`
+}
+
+let cat = new Animal("Cat")
+let dog = new Animal("Dog")
+
+// console.log(cat.run("100"))
+// console.log(cat.speak())
+// console.log(dog.run("120"))
+// console.log(dog.speak())
+
+
+String.prototype.arslan = function() {
+  return `${this} is a Hero`
+} 
+
+let myName = "Arslan"
+let newName = "HM-Arslan"
+// console.log(newName.arslan())
+// console.log(myName.arslan())
+
 
 // function Animal(type) {
 //   this.type = type;
@@ -48,6 +75,33 @@ function Animal(species) {
 // // console.log(myArray.hitesh());
 // let myNewArray = [1, 2, 3, 4, 5, 6];
 // // console.log(myNewArray.hitesh());
+
+class MyVehicle {
+  constructor(make, model, varient) {
+    this.make = make
+    this.model = model
+    this.varient = varient
+  }
+  // We can Define Functions known as Methods inside the class like this
+  CarInfo() {
+    return `I have ${this.make} ${this.model} which is ${this.varient} varient`
+  }
+}
+
+// The  Practical Demo of Class Inheritance 
+class Car extends MyVehicle {
+  // constructor IS optional here we can still create class withouth having constructor function in this case BCZ we are extending the class with MyVehicle so Car class will automatically use construcor function of MyVehicle
+  drive() {
+    return `${this.make} : This is an Inheritance Example`
+  }
+}
+
+let Sonata = new Car("Hyundai", "Sonata", "Top of the line")
+// console.log(Sonata)
+// console.log(Sonata.CarInfo())
+// console.log(Sonata.drive())
+
+
 
 // class Vehicle {
 //   constructor(make, model) {
