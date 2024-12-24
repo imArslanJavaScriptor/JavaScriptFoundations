@@ -1,231 +1,299 @@
-// Our Simple Object
+// JavaScript Object and Methods
 let car = {
   make: "Honda",
   model: "Civic X",
-  year: "2017",
-  Starts: function () {
-    return `${this.make} ${this.model} Car got started in ${this.year}`
-  }
-}
-// console.log(car.Starts())
+  year: 2017,
+  start: function () {
+    return `${this.make} ${this.model} started in ${this.year}`;
+  },
+};
+// console.log(car.start());
 
 // Constructor Function
 function Person(name, age) {
-  this.name = name
-  this.age = age
+  this.name = name;
+  this.age = age;
 }
 
-let newPerson = new Person("Arslan", 20)
-let user1 = new Person("Endrew", 30)
-// console.log(newPerson)
-// console.log(user1)
+let person1 = new Person("Arslan", 20);
+let person2 = new Person("Endrew", 30);
+// console.log(person1);
+// console.log(person2);
 
-// Prototype & Prototypal Chain
-// The whole idea about the prototype is that I can access properties and methods 
-// inherited from the prototype of an object. 
-
-// The whole idea about the prototypal chain is that I can inject my own methods 
-// or properties into this chain, allowing objects to inherit from one another. 
-// This is called the prototypal chain.
+// Prototype and Prototypal Chain
+// Prototypes allow us to add shared properties and methods for objects created from the same constructor.
+// Prototypal chaining enables inheritance of properties or methods.
 
 function Animal(species) {
-  this.species = species
-} 
-
-Animal.prototype.speak = function() {
-  return `${this.species} Can Speak`
+  this.species = species;
 }
 
-Animal.prototype.run = function(speed) {
-  return `${this.species} can Run with the speed of ${speed}km/h`
-}
+Animal.prototype.speak = function () {
+  return `${this.species} can speak`;
+};
 
-let cat = new Animal("Cat")
-let dog = new Animal("Dog")
+Animal.prototype.run = function (speed) {
+  return `${this.species} runs at ${speed} km/h`;
+};
 
-// console.log(cat.run("100"))
-// console.log(cat.speak())
-// console.log(dog.run("120"))
-// console.log(dog.speak())
+let cat = new Animal("Cat");
+let dog = new Animal("Dog");
 
+// console.log(cat.run(30));
+// console.log(dog.speak());
 
-String.prototype.arslan = function() {
-  return `${this} is a Hero`
-} 
+// Adding Custom Methods to Built-in Objects
+String.prototype.isHero = function () {
+  return `${this} is a Hero`;
+};
 
-let myName = "Arslan"
-let newName = "HM-Arslan"
-// console.log(newName.arslan())
-// console.log(myName.arslan())
+let name1 = "Arslan";
+// console.log(name1.isHero());
 
-
-// function Animal(type) {
-//   this.type = type;
-// }
-
-// Animal.prototype.speak = function () {
-//   return `${this.type} makes a sound`;
-// };
-
-// Array.prototype.hitesh = function () {
-//   return `Custom method ${this}`;
-// };
-
-// let myArray = [1, 2, 3];
-// // console.log(myArray.hitesh());
-// let myNewArray = [1, 2, 3, 4, 5, 6];
-// // console.log(myNewArray.hitesh());
-
-class MyVehicle {
-  constructor(make, model, varient) {
-    this.make = make
-    this.model = model
-    this.varient = varient
+// ES6 Classes and Inheritance
+class Vehicle {
+  constructor(make, model, variant) {
+    this.make = make;
+    this.model = model;
+    this.variant = variant;
   }
-  // We can Define Functions known as Methods inside the class like this
-  CarInfo() {
-    return `I have ${this.make} ${this.model} which is ${this.varient} varient`
+
+  info() {
+    return `This is a ${this.make} ${this.model}, ${this.variant} variant`;
   }
 }
 
-// The  Practical Demo of Class Inheritance 
-class Car extends MyVehicle {
-  // constructor IS optional here we can still create class withouth having constructor function in this case BCZ we are extending the class with MyVehicle so Car class will automatically use construcor function of MyVehicle
+class Car extends Vehicle {
   drive() {
-    return `${this.make} : This is an Inheritance Example`
+    return `${this.make} is an example of class inheritance`;
   }
 }
 
-let Sonata = new Car("Hyundai", "Sonata", "Top of the line")
-// console.log(Sonata)
-// console.log(Sonata.CarInfo())
-// console.log(Sonata.drive())
+let myCar = new Car("Hyundai", "Sonata", "Top");
+// console.log(myCar.info());
+// console.log(myCar.drive());
+
+// Encapsulation
+// Encapsulation restricts direct access to internal data by using private fields (#).
+class BankAccount {
+  #balance = 0;
+
+  deposit(amount) {
+    this.#balance += amount;
+  }
+
+  getBalance() {
+    return `$${this.#balance}`;
+  }
+}
+
+let account = new BankAccount();
+account.deposit(100);
+// console.log(account.getBalance());
+
+
+// Abstraction
+// Abstraction hides complexity and exposes only essential details.
+class CoffeeMachine {
+  #start() {
+    return "Starting the machine...";
+  }
+
+  #brewCoffee() {
+    return "Brewing coffee...";
+  }
+
+  pressStartButton() {
+    return `${this.#start()} ${this.#brewCoffee()}`;
+  }
+}
+
+let machine = new CoffeeMachine();
+// console.log(machine.pressStartButton());
+
+// Polymorphism
+// Polymorphism allows overriding methods to change behavior in child classes.
+class Bird {
+  fly() {
+    return "Flying...";
+  }
+}
+
+class Penguin extends Bird {
+  fly() {
+    return "Penguins can't fly.";
+  }
+}
+
+let penguin = new Penguin();
+// console.log(penguin.fly());
+
+// Static Methods
+// Static methods are called on the class itself, not on instances.
+class Calculator {
+  static add(a, b) {
+    return a + b;
+  }
+}
+
+// console.log(Calculator.add(2, 3));
+
+// Getters and Setters
+// Getters and setters control how properties are accessed and modified.
+class Employee {
+  #salary;
+
+  constructor(name, salary) {
+    if (salary < 0) {
+      throw new Error("Salary cannot be negative");
+    }
+    this.name = name;
+    this.#salary = salary;
+  }
+
+  get salary() {
+    return "Salary is private";
+  }
+
+  set salary(value) {
+    if (value < 0) {
+      console.error("Invalid Salary");
+    } else {
+      this.#salary = value;
+    }
+  }
+}
+
+let emp = new Employee("Alice", 50000);
+// console.log(emp.salary);
+emp.salary = 60000;
 
 
 
-// class Vehicle {
-//   constructor(make, model) {
-//     this.make = make;
-//     this.model = model;
-//   }
 
-//   start() {
-//     return `${this.model} is a car from ${this.make}`;
-//   }
-// }
+// Revisions
+// Encapsulation
+{
+  class BankAccount {
+    #balance = 1000 // By Putting # in front of balance i explicitly says that nobody can have a access of it direclty.
 
-// class Car extends Vehicle {
-//   drive() {
-//     return `${this.make} : This is an inheritance example`;
-//   }
-// }
+    deposit(amount) {
+      this.#balance +=  amount
+      return this.#balance
+    }
 
-// let myCar = new Car("Toyota", "Corolla");
-// // console.log(myCar.start());
-// // console.log(myCar.drive());
+    getBalance() {
+      return `$ ${this.#balance}`
+    }
+  }
+  let account = new BankAccount()
+  // console.log(account.deposit(100))
+  // console.log("Get Balance", account.getBalance())
+}
 
-// let vehOne = new Vehicle("Toyota", "Corolla");
-// // console.log(vehOne.make);
+// Abstraction 
+{
+  class CoffeeMachine{
+    start() {
+      return `Starting the Machine`
+    }
+    
+    brewCofee() {
+      return "Brewing Cofee"
+    }
 
-// // Encapsulation
+    pressStartButton() {
+      let msg1 = this.start()
+      let msg2 = this.brewCofee()
+      return `${msg1} + ${msg2}`
+    }
+  }
 
-// class BankAccount {
-//   #balance = 0;
+  let myMachine = new CoffeeMachine()
+  // console.log(myMachine.start())
+  // console.log(myMachine.brewCofee())
+  // console.log(myMachine.pressStartButton())
+}
 
-//   deposit(amount) {
-//     this.#balance += amount;
-//     return this.#balance;
-//   }
+// Polymorphism
+{
+  class Bird {
+    fly() {
+      return `Flying...`
+    }
+  }
+  
+  class Penguin extends Bird {
+    fly() {
+      return `Penguin can't fly`
+    }
+  }
+  
+  let bird = new Bird()
+  let penguin = new Penguin()
+  // console.log(bird.fly())
+  // console.log(penguin.fly())
 
-//   getBalance() {
-//     return `$ ${this.#balance}`;
-//   }
-// }
+}
 
-// let account = new BankAccount();
-// // console.log(account.getBalance());
+// Statics Method
+{
+  class Calculator {
+    static add (a, b) {
+      return `Sum = ${a + b}`
+    }
+  }
 
-// // Abstraction
+  let miniCal = new Calculator()
+  // console.log(miniCal.add(10, 40))
+  console.log(Calculator.add(10,20))
+}
 
-// class CoffeMachine {
-//   start() {
-//     // call DB
-//     // filter value
-//     return `Starting the machine...`;
-//   }
-//   brewCoffee() {
-//     // complex calculation
-//     return `Brewing coffee`;
-//   }
-
-//   pressStartButton() {
-//     let msgone = this.start();
-//     let msgTwo = this.brewCoffee();
-//     return `${msgone} + ${msgTwo}`;
-//   }
-// }
-
-// let myMachine = new CoffeMachine();
-// // console.log(myMachine.start());
-// // console.log(myMachine.brewCoffee());
-// // console.log(myMachine.pressStartButton());
-
-// // Polymorphism
-
-// class Bird {
-//   fly() {
-//     return `Flying....`;
-//   }
-// }
-
-// class Penguin extends Bird {
-//   fly() {
-//     return `Penguins can't fly`;
-//   }
-// }
-
-// let bird = new Bird();
-// let penguin = new Penguin();
-// // console.log(bird.fly());
-// // console.log(penguin.fly());
-
-// // static method
-
-// class Calculator {
-//   static add(a, b) {
-//     return a + b;
-//   }
-// }
-
-// // let miniCalc = new Calculator();
-// // console.log(miniCalc.add(2, 3));
-
-// // console.log(Calculator.add(2, 3));
-
-// // Getters and setters
-
-// class Employee {
-//   #salary;
-//   constructor(name, salary) {
-//     if (salary < 0) {
-//       throw new Error("Salary cannot be in negative");
-//     }
-//     this.name = name;
-//     this.#salary = salary;
-//   }
-
-//   get salary() {
-//     return `You are not allowed to see salary`;
-//   }
-
-//   set salary(value) {
-//     if (value < 0) {
-//       console.error("Invalid Salary");
-//     } else {
-//       this._salary = value;
-//     }
-//   }
-// }
-// let emp = new Employee("Alice", -50000);
-// console.log(emp._salary);
-// emp.salary = 60000;
+// Getters & Setters
+// Private Fields (#): Used to restrict direct access to certain properties, like #salary here.
+// Getters: Provide controlled access to read-only data.
+// Setters: Validate and update the data safely.
+{
+  class Employee {
+    #salary; // Private field to store salary
+  
+    constructor(name, salary) {
+      this.name = name;
+      if (salary < 0) {
+        console.error("Salary cannot be negative"); // Validation during initialization
+        this.#salary = 0; // Default to 0 if invalid
+      } else {
+        this.#salary = salary;
+      }
+    }
+  
+    // Getter to restrict viewing the salary
+    get salary() {
+      return "You are not allowed to see the salary.";
+    }
+  
+    // Setter to validate and update the salary
+    set salary(value) {
+      if (value < 0) {
+        console.error("Invalid Salary");
+      } else {
+        this.#salary = value;
+      }
+    }
+  
+    // Method to retrieve actual salary (for demonstration purposes)
+    getActualSalary() {
+      return this.#salary;
+    }
+  }
+  
+  // Create an Employee object
+  let emp1 = new Employee("Arslan", -40000); // Invalid salary handled
+  console.log(emp1.salary); // Output: "You are not allowed to see the salary."
+  console.log(emp1.getActualSalary()); // Output: 0 (default after validation)
+  
+  // Update salary using setter
+  emp1.salary = 60000; // Valid salary updated
+  console.log(emp1.getActualSalary()); // Output: 60000
+  
+}
