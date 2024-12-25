@@ -12,6 +12,7 @@ function multiply(a, b) {
   return a * b;
 }
 
+// Exporting in Common Js
 module.exports = {
   add,
   subtract,
