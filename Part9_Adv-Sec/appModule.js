@@ -1,10 +1,10 @@
 // Module import file
 
 //default import
-import multiply from "./mathOperationsM.js";
+import multiply from "./mathOperationsModule.js";
 
 //named import
-import { add, subtract } from "./mathOperationsM.js";
+import { add, subtract } from "./mathOperationsModule.js";
 
 console.log(multiply(2, 2));
 console.log(add(2, 2));
