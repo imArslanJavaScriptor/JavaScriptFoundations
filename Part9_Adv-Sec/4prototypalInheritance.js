@@ -8,3 +8,5 @@ Person.prototype.greet = function () {
 
 let hitesh = new Person("hitesh");
 hitesh.greet();
+// Practice More About Prototypal Inheritance Using Chat GPT
+// Also Explore and Understand the Diffrence B/W Proto & Prototype

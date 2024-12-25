@@ -14,3 +14,4 @@ const boundGreet = person.greet.bind({ name: "John" });
 boundGreet();
 
 //bind, call and apply
+// Study More About Call, Apply Bind Methods using Chat-GPT 
