@@ -33,3 +33,6 @@ async function getBlogData() {
   }
 }
 getBlogData();
+
+// Expalin Me This Code is a Begiiner Friendly Way.
+// Explore and Practice More About These Functions using Chat-GPT and Practice Practice and Practice and Get Better at code.
