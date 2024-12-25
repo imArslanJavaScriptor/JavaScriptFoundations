@@ -1,43 +1,58 @@
 // Checking if a number is greater than another number:
-let num1 = 50
-let num2 = 20
 
-if(num1 > num2) {
-  console.log("Number 1 is Greater Then Number 2")
-}else {
-  console.log("No, Number1 is not Greater Then Number 2")
+let num1 = 5;
+let num2 = 8;
+
+/*
+console.log("I am regular upper code");
+if (num1 > num2) {
+  console.log(" num 1 is greater than num2");
+} else {
+  console.log("Nope, num1 is NOT greater");
 }
 
+console.log("I am regular bottom code");
+*/
+
 // Checking if a string is equal to another string:
-let myName = "Arslan"
-let yourName = "HM-Arslan"
-if(myName !== yourName) {
-  console.log("You Both Have Unique Names")
-}else {
-  console.log("You Both have Same Name")
+
+let username = "chai";
+let anotherUsername = "chai";
+
+if (username == anotherUsername) {
+  //   console.log("Pick another username");
+} else {
+  console.log("You can pick this username");
 }
 
 //Checking if a variable is a number or not:
-let val = 100
-if(typeof val === "number") {
-  console.log("Val Variable is type of Number")
-}else {
-  console.log("val variable is not type of Number")
+
+let score = "44";
+
+if (typeof score === "number") {
+  console.log("Yep, this is a number");
+} else {
+  console.log("No that is not a number");
 }
 
 //Checking if a boolean value is true or false:
-let userPaid = true
-if(userPaid) {
-  console.log("This User is Paid Provide Him Pro Access")
-}else {
-  console.log("Get Membership By Paying First")
+
+let isTeaReady = false;
+
+if (isTeaReady) {
+  console.log("Tea is Ready");
+} else {
+  //   console.log("Tea is NOT ready");
 }
 
 // Checking if an array is empty or not:
-let myArr = ["Lion", {userName: "Arslan", age: 20}, true]
-if(myArr.length > 0) {
-  console.log("This Array is Not Empty")
-}else {
-  console.log("This is an Empty Array");  
-}
 
+let items = ["item1"];
+
+console.log(items.length);
+
+if (items.length === 0) {
+  console.log("Array is empty");
+} else {
+  console.log("Array is NOT empty");
+}

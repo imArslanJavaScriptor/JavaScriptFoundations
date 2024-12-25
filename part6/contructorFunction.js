@@ -1,61 +1,47 @@
 function Person(name, age) {
-  this.name = name
-  this.age = age
+  this.name = name;
+  this.age = age;
 }
-
 
 function Car(make, model) {
-  this.make = make
-  this.model = model
+  this.make = make;
+  this.model = model;
 }
 
-let myCar = new Car("Honda", "Civic X")
-let myNewCar = new Car("Hyundai", "Sonata")
-console.log(myCar)
-console.log(myNewCar)
+let myCar = new Car("Toyota", "Camry");
+// console.log(myCar);
 
-
-let arslan = new Person("Arslan", 20)
-let hammad = new Person("Hammad", 18)
-let bablu = new Person("Bablu", 16)
-let hadi = new Person("Hadi", 10)
-console.log(arslan)
-console.log(hammad)
-console.log(bablu)
-console.log(hadi)
-
+let myNewCar = Car("Tata", "Safari");
+// console.log(myNewCar);
 
 function Tea(type) {
-  this.type = type
-  this.description = function() {
-    return `This is a cup of ${this.type}`
-  }
+  this.type = type;
+  this.describe = function () {
+    return `this is a cup of ${this.type}`;
+  };
 }
-
-let LemonTea = new Tea("Lemon Tea")
-let desc = LemonTea.description()
-console.log(desc)
-console.log(LemonTea.description())
-console.log(LemonTea.type)
+let lemonTea = new Tea("lemon tea");
+// console.log(lemonTea.describe());
 
 function Animal(species) {
-  this.species = species
+  this.species = species;
 }
 
-Animal.prototype.soud = function() {
-  return `${this.species} makes sound`
-}
+Animal.prototype.sound = function () {
+  return `${this.species} makes a sound`;
+};
 
-let Cat = new Animal("Cat")
-console.log(Cat.soud())
+let dog = new Animal("Dog");
+// console.log(dog.sound());
 
-function Drink(type){
-  if(!new.target) {
-    throw new Error("This is a Constructor Function Make Sure to Start with New Key Word");
+let cat = new Animal("cat");
+// console.log(cat.sound());
+
+function Drink(name) {
+  if (!new.target) {
+    throw new Error("Drink must be called with new keyword");
   }
-  this.type = type
+  this.name = name;
 }
-
-let AlmondMilk = new Drink("Almond Milk") 
-// let AlmondMilk = Drink("Almond Milk") 
-// console.log(AlmondMilk)
+let tea = new Drink("tea");
+let coffee = Drink("coffee");
