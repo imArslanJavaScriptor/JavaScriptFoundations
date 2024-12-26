@@ -1,28 +1,37 @@
-let score = 102;
-let bonus = 25;
+// Addition
+console.log(10 + 20)
 
-let totalScore = score + bonus;
+// Subtraction
+console.log(20 - 5)
 
-let addition = 4 + 5;
-let subtract = 9 - 3;
-let mult = 3 * 5;
-let divi = 8 / 2;
-let reminder = 9 % 2;
-let expo = 2 ** 3;
+// Multiplication
+console.log(5  * 4)
 
-let myscore = 110;
-myscore++;
+// Division 
+console.log(20 / 2)
 
-let credits = 56;
-credits--;
+// Modulous
+console.log(33 % 5)
 
-// Comparion operation
+// Exponensiation
+console.log(2 ** 4)
 
-let num1 = 3;
-let num2 = 3;
-let num3 = 6;
+let a = 10
+let b = 20
 
-console.log(num1 == num2); //true
-console.log(num1 != num3); // true
-console.log(num1 > num3); // true
-console.log(num1 < num3); // true
+console.log(++a) // Prefix
+console.log(a++) // Postfix
+
+console.log(--b)
+console.log(b--)
+
+// Comparision Operator
+
+console.log( a > b)
+console.log(a < b)
+console.log(a >= b)
+console.log(a <= b)
+console.log(a == b)
+console.log(a === b)
+console.log(a != b)
+console.log(a !== b)

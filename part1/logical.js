@@ -2,12 +2,18 @@
 // || -> or
 // ! -> reverse
 
-let isLoggedin = true;
-let ispaid = true;
+let isLogedIn = true;
+let isPaid = true;
 
-// console.log(isLoggedin && ispaid);
+if (isLogedIn && isPaid) {
+  console.log("You can Access This Product");
+}
 
-let isEmailuser = true;
-let isGoogleuser = false;
+let chekingAccess =
+  isLogedIn || isPaid ? "You Have The Access" : "You Don't have the Access";
 
-console.log(isEmailuser || isGoogleuser);
+// Reverse Checking
+let validatingUser = !isLogedIn ? "Please Loggin First" : "OK";
+
+console.log(chekingAccess);
+console.log(validatingUser);

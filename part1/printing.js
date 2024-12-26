@@ -1,7 +1,11 @@
-console.log("Hello");
-console.log("chai");
-process.stdout.write("chai");
-process.stdout.write("chai");
+console.log("Hello Earth")
 
-console.table({ city: "Jaipur" });
-console.warn({ city: "Jaipur" });
+console.error("Something Went Wrong")
+
+console.warn("There is a Warning")
+
+console.dir("This is DIR")
+
+console.table({City: "Lahore"})
+
+process.stdout.write("Arslan")

@@ -1,2 +1,2 @@
-let score = ((2 * (3 + 2)) - 1);
+let score = ((10 * (20 / 10) - 10))
 console.log(score);
