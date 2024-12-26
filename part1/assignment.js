@@ -1,8 +1,6 @@
-let score = 10 + 11;
+let a = 17;
+let b = 5;
 
-let num1 = 10;
-
-// num1 = num1 + 5
-num1 /= 5;
-
-console.log(num1);
+let myName = "Arslan";
+console.log(myName);
+console.log(a + b);

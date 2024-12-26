@@ -1,11 +1,4 @@
-let gameName = "spiderman";
-
-gameName = "batman";
-
-console.log(gameName);
-
-const username = "hiteshdotcom";
-
-username = "hitesh";
-
-console.log(username);
+let myName = "HM-Arslan";
+let myWebsiteName = `i'mArslan.me`;
+console.log(myWebsiteName);
+console.log(myName);
