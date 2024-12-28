@@ -51,18 +51,11 @@ function Animal(Species) {
 Animal.prototype.sound = function() {
   return `${this.Species} Make Sound`
 }
-let newAnimal = new Animal("Cat")
-console.log(newAnimal.sound())
+let animal1 = new Animal("Cat")
+let animal2 = new Animal("Horse")
 
-// Animal.prototype.sound = function () {
-//   return `${this.species} makes a sound`;
-// };
-
-// let dog = new Animal("Dog");
-// // console.log(dog.sound());
-
-// let cat = new Animal("cat");
-// // console.log(cat.sound());
+// console.log(animal1.sound())
+// console.log(animal2.sound())
 
 // function Drink(name) {
 //   if (!new.target) {
@@ -70,5 +63,14 @@ console.log(newAnimal.sound())
 //   }
 //   this.name = name;
 // }
-// let tea = new Drink("tea");
-// let coffee = Drink("coffee");
+
+function Drink(name) {
+  if(!new.target) {
+    throw new Error("Constructor Function Drink must be called with new keyword")
+  }
+  this.name = name
+}
+let juice = new Drink("Mango Shake")
+// let milk =  Drink("Almond Shake")
+// console.log(juice)
+// console.log(milk)
