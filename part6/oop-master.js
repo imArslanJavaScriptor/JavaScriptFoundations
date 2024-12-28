@@ -1,161 +1,175 @@
-let car = {
-  make: "Toyota",
-  model: "Camry",
-  year: 2020,
-  start: function () {
-    return `${this.make} car got started in ${this.year}`;
-  },
-};
-// console.log(car.start());
+let Car = {
+  Make: "Honda",
+  Model: "Civic RS 2018",
+  YearSince: 1972,
+  about: function() {
+    return `${this.Make} ${this.Model} is my car. The lineup of this version started back in ${this.YearSince}.`;
+  }
+}
+
+// console.log(Car)
+// console.log(Car.about())
 
 function Person(name, age) {
-  this.name = name;
-  this.age = age;
+  this.name = name
+  this.age = age
 }
 
-let john = new Person("John Doe", 20);
-// console.log(john.name);
+let p1 = new Person("Hadi", 24)
+let p2 = new Person("Mumtahin", 20)
+// console.log(p1)
+// console.log(p2)
 
-function Animal(type) {
-  this.type = type;
+function Animal(Species) {
+  this.Species = Species
 }
 
-Animal.prototype.speak = function () {
-  return `${this.type} makes a sound`;
-};
+Animal.prototype.Speak = function() {
+  return `${this.Species} makes Sound`
+}
 
-Array.prototype.hitesh = function () {
-  return `Custom method ${this}`;
-};
+let puppy = new Animal("Dog")
+// console.log(puppy.Speak())
 
-let myArray = [1, 2, 3];
-// console.log(myArray.hitesh());
-let myNewArray = [1, 2, 3, 4, 5, 6];
-// console.log(myNewArray.hitesh());
+String.prototype.Arslan = function() {
+  return `This is ${this + " King"}`
+}
 
-class Vehicle {
-  constructor(make, model) {
-    this.make = make;
-    this.model = model;
+let myName = String("Arslan")
+// console.log(myName.Arslan())
+
+Array.prototype.Current = function() {
+  return `Custom Method Dispalying Current Context ==>: ${this}`
+}
+
+let myArr = [1,2,3,4,5]
+// console.log(myArr.Current())
+
+class MyVehicle  {
+  constructor(Make, Model, YearSince) {
+    this.Make = Make
+    this.Model = Model
+    this.YearSince = YearSince
   }
-
-  start() {
-    return `${this.model} is a car from ${this.make}`;
+  about() {
+    return `${this.Make} ${this.Model} is my car. The lineup of this version started back in ${this.YearSince}.`;
   }
 }
 
-class Car extends Vehicle {
+// Inheritance
+class MyCar extends MyVehicle {
   drive() {
-    return `${this.make} : This is an inheritance example`;
+    return `${this.Make} : This Make Property is Inheriting From Vehivcle Class` // Class Inheritance Example
   }
 }
 
-let myCar = new Car("Toyota", "Corolla");
-// console.log(myCar.start());
-// console.log(myCar.drive());
+let newCar = new MyCar("Honda", "Civic", 2024)
+console.log(newCar)
+// console.log(newCar.drive())
+// console.log(newCar.about())
+// console.log(newCar.hasOwnProperty())
 
-let vehOne = new Vehicle("Toyota", "Corolla");
-// console.log(vehOne.make);
 
-// Encapsulation
 
-class BankAccount {
-  #balance = 0;
+// // Encapsulation
 
-  deposit(amount) {
-    this.#balance += amount;
-    return this.#balance;
-  }
+// class BankAccount {
+//   #balance = 0;
 
-  getBalance() {
-    return `$ ${this.#balance}`;
-  }
-}
+//   deposit(amount) {
+//     this.#balance += amount;
+//     return this.#balance;
+//   }
 
-let account = new BankAccount();
-// console.log(account.getBalance());
+//   getBalance() {
+//     return `$ ${this.#balance}`;
+//   }
+// }
 
-// Abstraction
+// let account = new BankAccount();
+// // console.log(account.getBalance());
 
-class CoffeMachine {
-  start() {
-    // call DB
-    // filter value
-    return `Starting the machine...`;
-  }
-  brewCoffee() {
-    // complex calculation
-    return `Brewing coffee`;
-  }
+// // Abstraction
 
-  pressStartButton() {
-    let msgone = this.start();
-    let msgTwo = this.brewCoffee();
-    return `${msgone} + ${msgTwo}`;
-  }
-}
+// class CoffeMachine {
+//   start() {
+//     // call DB
+//     // filter value
+//     return `Starting the machine...`;
+//   }
+//   brewCoffee() {
+//     // complex calculation
+//     return `Brewing coffee`;
+//   }
 
-let myMachine = new CoffeMachine();
-// console.log(myMachine.start());
-// console.log(myMachine.brewCoffee());
-// console.log(myMachine.pressStartButton());
+//   pressStartButton() {
+//     let msgone = this.start();
+//     let msgTwo = this.brewCoffee();
+//     return `${msgone} + ${msgTwo}`;
+//   }
+// }
 
-// Polymorphism
+// let myMachine = new CoffeMachine();
+// // console.log(myMachine.start());
+// // console.log(myMachine.brewCoffee());
+// // console.log(myMachine.pressStartButton());
 
-class Bird {
-  fly() {
-    return `Flying....`;
-  }
-}
+// // Polymorphism
 
-class Penguin extends Bird {
-  fly() {
-    return `Penguins can't fly`;
-  }
-}
+// class Bird {
+//   fly() {
+//     return `Flying....`;
+//   }
+// }
 
-let bird = new Bird();
-let penguin = new Penguin();
-// console.log(bird.fly());
-// console.log(penguin.fly());
+// class Penguin extends Bird {
+//   fly() {
+//     return `Penguins can't fly`;
+//   }
+// }
 
-// static method
+// let bird = new Bird();
+// let penguin = new Penguin();
+// // console.log(bird.fly());
+// // console.log(penguin.fly());
 
-class Calculator {
-  static add(a, b) {
-    return a + b;
-  }
-}
+// // static method
 
-// let miniCalc = new Calculator();
-// console.log(miniCalc.add(2, 3));
+// class Calculator {
+//   static add(a, b) {
+//     return a + b;
+//   }
+// }
 
-// console.log(Calculator.add(2, 3));
+// // let miniCalc = new Calculator();
+// // console.log(miniCalc.add(2, 3));
 
-// Getters and setters
+// // console.log(Calculator.add(2, 3));
 
-class Employee {
-  #salary;
-  constructor(name, salary) {
-    if (salary < 0) {
-      throw new Error("Salary cannot be in negative");
-    }
-    this.name = name;
-    this.#salary = salary;
-  }
+// // Getters and setters
 
-  get salary() {
-    return `You are not allowed to see salary`;
-  }
+// class Employee {
+//   #salary;
+//   constructor(name, salary) {
+//     if (salary < 0) {
+//       throw new Error("Salary cannot be in negative");
+//     }
+//     this.name = name;
+//     this.#salary = salary;
+//   }
 
-  set salary(value) {
-    if (value < 0) {
-      console.error("Invalid Salary");
-    } else {
-      this._salary = value;
-    }
-  }
-}
-let emp = new Employee("Alice", -50000);
-console.log(emp._salary);
-emp.salary = 60000;
+//   get salary() {
+//     return `You are not allowed to see salary`;
+//   }
+
+//   set salary(value) {
+//     if (value < 0) {
+//       console.error("Invalid Salary");
+//     } else {
+//       this._salary = value;
+//     }
+//   }
+// }
+// let emp = new Employee("Alice", -50000);
+// console.log(emp._salary);
+// emp.salary = 60000;
