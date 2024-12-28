@@ -43,4 +43,4 @@ if(items.length) {
   console.log("Array is not Empty")
 }else {
   console.log("Array is Empty")
-}
+} 
