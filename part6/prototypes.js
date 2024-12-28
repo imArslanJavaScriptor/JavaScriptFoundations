@@ -62,13 +62,19 @@ let ElectricCar = { doors: 2 };
 
 // Task: Set `car` as the prototype of `electricCar`.
 // Check the value of `electricCar.doors` before and after setting the prototype.
+console.log(ElectricCar.doors)
+Object.setPrototypeOf(ElectricCar, Car)
+console.log(ElectricCar)
+console.log(ElectricCar.__proto__)
+console.log(ElectricCar.__proto__.doors)
 
-console.log(electricCar.doors); // Expected Output: 2 (overrides prototype property)
 
-let parent = { generation: 1 };
-let child = Object.create(null);
+let Parent = { generation: 1 };
+let Child = Object.create(null);
 
 // Task: Try setting `parent` as the prototype of `child`.
 // Check if `child` can access the `generation` property.
 
-console.log(child.generation); // Expected Output: undefined (no prototype chain)
+Object.setPrototypeOf(Child, Parent)
+console.log("Child: ", Child)
+console.log("Child Getting Generation Access: ", Child.generation)
