@@ -71,6 +71,6 @@ function Drink(name) {
   this.name = name
 }
 let juice = new Drink("Mango Shake")
-// let milk =  Drink("Almond Shake")
+let milk =  Drink("Almond Shake")
 // console.log(juice)
-// console.log(milk)
+console.log(milk)

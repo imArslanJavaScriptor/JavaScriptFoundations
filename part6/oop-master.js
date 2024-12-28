@@ -56,6 +56,19 @@ class MyVehicle  {
   }
 }
 
+// Practice and Understand The Diffrence B/W Proto and Prototype
+function Animal(name) {
+  this.name = name;
+}
+Animal.prototype.speak = function () {
+  return `${this.name} makes a noise.`;
+};
+
+const dog = new Animal('Dog');
+// console.log(dog.speak()); // What does this output?
+// console.log(dog.__proto__ === Animal.prototype); // True or False?
+
+
 // Inheritance
 class MyCar extends MyVehicle {
   drive() {
@@ -64,112 +77,113 @@ class MyCar extends MyVehicle {
 }
 
 let newCar = new MyCar("Honda", "Civic", 2024)
-console.log(newCar)
+// console.log(newCar)
 // console.log(newCar.drive())
 // console.log(newCar.about())
 // console.log(newCar.hasOwnProperty())
 
+// Encapsulation
+class BankAccount {
+  #balance = 0;
+  addAmount(amount) {
+    this.#balance += amount;  
+    return this.#balance;
+  }
+  WithdrwAmount() {
+    return `$ ${this.#balance}`;
+  }
+}
 
+let newAccount = new BankAccount()
+// newAccount.addAmount(100000)
+// let getMoney = newAccount.WithdrwAmount()
+// console.log(getMoney)
+// console.log(newAccount.balance)
 
-// // Encapsulation
+// Abstraction
+class CoffeMachine {
+  start() {
+    // call DB
+    // filter value
+    return `Starting the machine...`;
+  }
+  brewCoffee() {
+    // complex calculation
+    return `Brewing coffee`;
+  }
 
-// class BankAccount {
-//   #balance = 0;
+  pressStartButton() {
+    let msgone = this.start();
+    let msgTwo = this.brewCoffee();
+    return `${msgone} + ${msgTwo}`;
+  }
+}
 
-//   deposit(amount) {
-//     this.#balance += amount;
-//     return this.#balance;
-//   }
-
-//   getBalance() {
-//     return `$ ${this.#balance}`;
-//   }
-// }
-
-// let account = new BankAccount();
-// // console.log(account.getBalance());
-
-// // Abstraction
-
-// class CoffeMachine {
-//   start() {
-//     // call DB
-//     // filter value
-//     return `Starting the machine...`;
-//   }
-//   brewCoffee() {
-//     // complex calculation
-//     return `Brewing coffee`;
-//   }
-
-//   pressStartButton() {
-//     let msgone = this.start();
-//     let msgTwo = this.brewCoffee();
-//     return `${msgone} + ${msgTwo}`;
-//   }
-// }
-
-// let myMachine = new CoffeMachine();
-// // console.log(myMachine.start());
-// // console.log(myMachine.brewCoffee());
-// // console.log(myMachine.pressStartButton());
+let myMachine = new CoffeMachine();
+// console.log(myMachine.start());
+// console.log(myMachine.brewCoffee());
+// console.log(myMachine.pressStartButton());
 
 // // Polymorphism
 
-// class Bird {
-//   fly() {
-//     return `Flying....`;
-//   }
-// }
+class Bird {
+  fly() {
+    return `Flying....`;
+  }
+}
 
-// class Penguin extends Bird {
-//   fly() {
-//     return `Penguins can't fly`;
-//   }
-// }
+class Penguin extends Bird {
+  fly() {
+    return `Penguins can't fly`;
+  }
+}
 
-// let bird = new Bird();
-// let penguin = new Penguin();
-// // console.log(bird.fly());
-// // console.log(penguin.fly());
+let bird = new Bird();
+let penguin = new Penguin();
+// console.log(bird.fly());
+// console.log(penguin.fly());
 
-// // static method
+// static method
+class Calculator {
+  static add(a,b) {
+    return a  + b
+  }
 
-// class Calculator {
-//   static add(a, b) {
-//     return a + b;
-//   }
-// }
+  static multiply(a, b) {
+    return a * b
+  }
+}
 
-// // let miniCalc = new Calculator();
-// // console.log(miniCalc.add(2, 3));
+let miniCalc = new Calculator()
+// console.log(miniCalc.add(2, 3))
+// console.log(miniCalc.multiply(2, 3)) // Throw Error BCZ Static methods works only with class direclty
+// console.log(Calculator.add(12, 3));
+// console.log(Calculator.multiply(20, 3));
 
-// // console.log(Calculator.add(2, 3));
+// Getters and setters
 
-// // Getters and setters
+class Employee {
+  #salary;
+  constructor(name, salary) {
+    if (salary < 0) {
+      throw new Error("Salary cannot be in negative");
+    }
+    this.name = name;
+    this.#salary = salary;
+  }
 
-// class Employee {
-//   #salary;
-//   constructor(name, salary) {
-//     if (salary < 0) {
-//       throw new Error("Salary cannot be in negative");
-//     }
-//     this.name = name;
-//     this.#salary = salary;
-//   }
+  get salary() {
+    return `You are not allowed to see salary`;
+  }
 
-//   get salary() {
-//     return `You are not allowed to see salary`;
-//   }
-
-//   set salary(value) {
-//     if (value < 0) {
-//       console.error("Invalid Salary");
-//     } else {
-//       this._salary = value;
-//     }
-//   }
-// }
-// let emp = new Employee("Alice", -50000);
-// console.log(emp._salary);
-// emp.salary = 60000;
+  set salary(value) {
+    if (value < 0) {
+      console.error("Invalid Salary");
+    } else {
+      this._salary = value;
+    }
+  }
+}
+let emp = new Employee("Alice", -50000);
+console.log(emp._salary);
+emp.salary = 60000;
