@@ -68,5 +68,4 @@ let cityList = [];
 for (let i = 0; i < cities.length; i++) {
   cityList.push(cities[i]) 
 }
-c
 // console.log("New Array",cityList)
