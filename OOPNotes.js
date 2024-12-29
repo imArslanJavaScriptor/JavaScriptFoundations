@@ -1,6 +1,5 @@
 class Wallet {
-    #balance = 0;
-  
+    #balance = 0;  
     addMoney(amount) {
       if (amount <= 0) {
         return 'Invalid amount';
@@ -8,15 +7,14 @@ class Wallet {
       this.#balance += amount;
       return `Added: $${amount}`;
     }
-  
     getBalance() {
       return `Wallet balance: $${this.#balance}`;
     }
   }
-  
   const myWallet = new Wallet();
   console.log(myWallet.addMoney(100)); // $100 جمع کریں
   console.log(myWallet.getBalance()); // بیلنس چیک کریں
+  
   class User {
     #password;
   

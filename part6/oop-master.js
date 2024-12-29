@@ -161,29 +161,35 @@ let miniCalc = new Calculator()
 // console.log(Calculator.multiply(20, 3));
 
 // Getters and setters
+// class Employee {
+//   #salary; // Private field
+//   constructor(name, salary) {
+//     if (salary < 0) {
+//       throw new Error("Salary cannot be in negative");
+//     }
+//     this.name = name;
+//     this.#salary = salary;
+//   }
 
-class Employee {
-  #salary;
-  constructor(name, salary) {
-    if (salary < 0) {
-      throw new Error("Salary cannot be in negative");
-    }
-    this.name = name;
-    this.#salary = salary;
-  }
+//   get salary() {
+//     return `Salary is private`;
+//   }
 
-  get salary() {
-    return `You are not allowed to see salary`;
-  }
+//   set salary(value) {
+//     if (value < 0) {
+//       console.error("Invalid Salary");
+//     } else {
+//       this.#salary = value; // Update private field
+//     }
+//   }
 
-  set salary(value) {
-    if (value < 0) {
-      console.error("Invalid Salary");
-    } else {
-      this._salary = value;
-    }
-  }
-}
-let emp = new Employee("Alice", -50000);
-console.log(emp._salary);
-emp.salary = 60000;
+//   showSalary() {
+//     return this.#salary; // Provide a controlled way to access the private salary
+//   }
+// }
+
+// let emp = new Employee("Alice", 50000);
+// console.log(emp.salary); // "Salary is private"
+// emp.salary = 60000; // Updates salary
+// console.log(emp.showSalary()); // 60000
+// console.log(emp.showSalary())
