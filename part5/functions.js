@@ -37,16 +37,16 @@ console.log("Question 3 Answer", totalCost)
 Return the result of calling `makeTea`.
 */
 
-function makeTea (typeOfTea) {
-  return typeOfTea
-}
+// function makeTea (typeOfTea) {
+//   return typeOfTea
+// }
 
-function processTeaOrder(makeTea) {
-  return makeTea("earl grey")
-}
+// function processTeaOrder(makeTea) {
+//   return makeTea("earl grey")
+// }
 
-let myOrder = processTeaOrder(makeTea)
-console.log("Question 4 Answer", myOrder)
+// let myOrder = processTeaOrder(makeTea)
+// console.log("Question 4 Answer", myOrder)
 
 /* 
 5. Write a function named `createTeaMaker` that returns another function. The returned function should take one parameter, `teaType`, and return a message like `"Making green tea"`. 
@@ -54,12 +54,23 @@ Store the returned function in a variable named `teaMaker` and call it with `"gr
 */
 
 
-function createTeaMaker() {
-  return function(teaType) {
-    return `Making ${teaType}`
-  }
+// function createTeaMaker() {
+//   return function(teaType) {
+//     return `Making ${teaType}`
+//   }
+// }
+
+// let teaMaker = createTeaMaker()
+// let result = teaMaker("green tea")
+// console.log("Question 5 Answer", result)
+
+function makeTea(tea) {
+  return tea
 }
 
-let teaMaker = createTeaMaker()
-let result = teaMaker("green tea")
-console.log("Question 5 Answer", result)
+function processTeaOrder(teaFunc) {
+  return teaFunc
+}
+
+let ans = processTeaOrder(makeTea("lemon tea"))
+console.log(ans)
